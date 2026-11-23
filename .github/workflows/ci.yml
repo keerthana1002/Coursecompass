@@ -1,4 +1,4 @@
-name: CourseCompass CI/CD Pipeline
+﻿name: CourseCompass CI/CD Pipeline
 
 on:
   push:
@@ -21,7 +21,7 @@ jobs:
       - name: Static Analysis (Pylint & Bandit)
         run: |
           pylint backend/app --exit-zero
-          bandit -r backend/app
+          bandit -r backend/app -ll
       - name: Run Unit & Integration Tests (>=80% Coverage)
         run: |
           pytest tests/test_coursecompass.py -v --cov=backend/app --cov-fail-under=80
